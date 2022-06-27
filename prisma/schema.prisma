@@ -9,3 +9,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Genre {
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model Movie {
+  id                Int      @id @default(autoincrement())
+  adult             Boolean
+  budget            Int
+  genres            String[]
+  imdb_id           String   @unique
+  language          String
+  title             String
+  overview          String
+  popularity        Float
+  posterPath        String
+  productionCompany String[]
+  rating            Float
+  rateCount         Int
+  releaseDate       DateTime
+  revenue           Float
+  runtime           Float
+  tagline           String?
+}
